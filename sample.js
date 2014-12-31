@@ -21,3 +21,30 @@ function swapElements(arg1, arg2){
 		$(itemparent).children().eq(itemindex - 1).after(temp);
 	}
 }
+
+//SAMPLE FILTERING CODE FOR www.livingrichwithcoupons.com
+//Set pricepoint to compare against deals
+var pricePoint = 0.50;
+
+//
+var itemswithcoupons = $('.plists-item:matchRegex(as low as)');
+var pattern1 = new RegExp('as low as.*','i');
+var pattern2 = new RegExp('\\d{0,6}\\.\\d{2,}?','i')
+
+$.each(itemswithcoupons, function(index, el) {
+	var matchedText = pattern1.exec($(el).text());
+	var matchedAmount = Number(pattern2.exec(matchedText));
+	if (matchedAmount > x) {
+		$(el).hide();
+	}
+});
+
+var itemswithoutcoupons = $('.plists-item:not(:matchRegex(as.*low.*as))');
+var pattern3 = new RegExp('\\d{0,6}\\.\\d{2,}(?!.*\\d{0,6}\\.\\d{2,})');
+
+$.each(itemswithoutcoupons, function(index, el) {
+	var matchedAmount = Number(pattern3.exec($(el).text()));
+	if (matchedAmount > x) {
+		$(el).hide();
+	}
+});
