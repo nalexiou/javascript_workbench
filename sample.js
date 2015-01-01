@@ -48,3 +48,40 @@ $.each(itemswithoutcoupons, function(index, el) {
 		$(el).hide();
 	}
 });
+
+
+//function that allows to search for element text excluding children element
+$.fn.justtext = function() {
+    return $(this).clone()
+        .children()
+        .remove()
+        .end()
+        .text();
+};
+
+
+function locateCommonParent(arg, searchterm){
+	//Find closest/nearest common parent for elements that contain specific text
+    //select elements that contain 'searchterm' excluding children
+	var jq = $(":contains('" + search + "')").filter(function() { return ($(this).justtext().search(searchterm) > -1); });
+
+	// get first element of found elements
+	var temp = $(arg[0]);
+	//loop through each elements and add it's parents. Check whether new set of elements with parents added
+	//contains each element in original jq
+	jq.each(function () { 
+	    temp = temp.parents().add(temp).has(this).last(); 
+	});
+	return temp;
+}
+
+
+
+
+
+
+
+
+
+
+
