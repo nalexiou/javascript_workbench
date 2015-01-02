@@ -75,7 +75,26 @@ function locateCommonParent(arg, searchterm){
 	return temp;
 }
 
+//Alternative function from StackOverflow to find common parent of elements with no children
+var matches = $('*').filter(function () {
+     return !$(this).children().length && $(this).text() == "Sometext";
+});
 
+var commonparent = matches.first().parents().filter(function () {
+    return $(this).find(matches).length == matches.length;
+}).first();
+
+//jQuery extension of the above functionality for a jQuery object contanining matched elements
+$.fn.commonParents = function (){
+    var cachedThis = this;
+    return cachedThis.first().parents().filter(function () {
+        return $(this).find(cachedThis).length === cachedThis.length;
+    });
+};
+
+$.fn.commonParent = function (){
+    return $(this).commonParents().first();
+};
 
 
 
