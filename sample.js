@@ -63,7 +63,7 @@ $.fn.justtext = function() {
 function locateCommonParent(arg, searchterm){
 	//Find closest/nearest common parent for elements that contain specific text
     //select elements that contain 'searchterm' excluding children
-	var jq = $(":contains('" + search + "')").filter(function() { return ($(this).justtext().search(searchterm) > -1); });
+	var jq = $(":contains('" + searchterm + "')").filter(function() { return ($(this).justtext().search(searchterm) > -1); });
 
 	// get first element of found elements
 	var temp = $(arg[0]);
