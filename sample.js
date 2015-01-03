@@ -63,7 +63,7 @@ $.fn.justtext = function() {
 function locateCommonParent(arg, searchterm){
 	//Find closest/nearest common parent for elements that contain specific text
     //select elements that contain 'searchterm' excluding children's text
-	var jq = $('*').filter(function() { return ($(this).justtext().search(searchterm) > -1); });
+		var jq = $('*').filter(function() { return ($(this).justtext().search(searchterm) > -1); });
 
 	// get first element of found elements
 	var temp = $(arg[0]);
@@ -96,8 +96,48 @@ $.fn.commonParent = function (){
     return $(this).commonParents().first();
 };
 
+function filterDeals(searchtext, lowerlimit, upperlimit, freeflag){
+	//setup defaults
+	if(typeof(lowerlimit)==='undefined')  lowerlimit = Number.NEGATIVE_INFINITY;
+	if(typeof(upperlimit)==='undefined')  upperlimit = Number.POSITIVE_INFINITY;
+	if(typeof(freeflag)==='undefined')    freeflag = true; //default includes free items 
+	//negative lookahead - find the last amount
+	var amountPattern = new RegExp('\\d{0,6}\\.\\d{2,}(?!.*\\d{0,6}\\.\\d{2,})');
+	//find all deal elements
+	var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
+	//setup array with unwantedDealElements
+	var unwantedDealElements = [];
+	//check each element and if amount is greater than filter, push to array
+	$.each(allDealElements, function(index, el) {
+		if 	($(el).text().match(/free/gi) === null) {
+			var matchedAmount = Number(amountPattern.exec($(el).text()));
+			if (matchedAmount > upperlimit || matchedAmount < lowerlimit) {
+				unwantedDealElements.push(el);
+			}
+		}
+		//add free items in the unwantedDealElements if freeflag is set to false
+		else if ($(el).text().match(/free/gi) !== null && !freeflag){
+			unwantedDealElements.push(el);
+		}
+	});
+	//setup variable for outerElements - we want to hide the outer layer (element block) that contains complete deal
+	var outerElements = unwantedDealElements;
+	while ($(outerElements).parent().length == unwantedDealElements.length) {
+		outerElements = $(outerElements).parent();
+	}
+	//hide the complete
+	$(outerElements).hide();
+}
 
-
+function resetDeals(searchtext){
+	//find all deal elements that contain search text
+	var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
+	var outerElements = allDealElements;
+	while ($(outerElements).parent().length == allDealElements.length) {
+		outerElements = $(outerElements).parent();
+	}
+	outerElements.show();
+}
 
 
 
