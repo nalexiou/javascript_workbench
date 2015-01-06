@@ -121,7 +121,7 @@ function filterDeals(searchtext, lowerlimit, upperlimit, freeflag){
 			}
 		}
 		//add free items in the unwantedDealElements if freeflag is set to false
-		else if ($(el).text().match(/free/gi) !== null && !freeflag){
+		else if ($(el).text().match(/\bfree\b/gi) !== null && !freeflag){
 			unwantedDealElements.push(el);
 		}
 	});
@@ -150,7 +150,7 @@ function filterDeals(searchtext, lowerlimit, upperlimit, freeflag){
 			//hide the complete
 			$(outerElement).hide();
 			contentWrapper = $(outerElement).siblings();
-		}
+		}	
 	});
 
 }
