@@ -63,7 +63,7 @@ $.fn.justtext = function() {
 function locateCommonParent(arg, searchterm){
 	//Find closest/nearest common parent for elements that contain specific text
     //select elements that contain 'searchterm' excluding children's text
-		var jq = $('*').filter(function() { return ($(this).justtext().search(searchterm) > -1); });
+	var jq = $('*').filter(function() { return ($(this).justtext().search(searchterm) > -1); });
 
 	// get first element of found elements
 	var temp = $(arg[0]);
@@ -102,15 +102,20 @@ function filterDeals(searchtext, lowerlimit, upperlimit, freeflag){
 	if(typeof(upperlimit)==='undefined')  upperlimit = Number.POSITIVE_INFINITY;
 	if(typeof(freeflag)==='undefined')    freeflag = true; //default includes free items 
 	//negative lookahead - find the last amount
-	var amountPattern = new RegExp('\\d{0,6}\\.\\d{2,}(?!.*\\d{0,6}\\.\\d{2,})');
+	// var amountPattern = new RegExp('\\d{0,6}\\.\\d{2,}(?!.*\\d{0,6}\\.\\d{2,})','g');
+	var amountPattern = new RegExp('\\d{0,6}\\.\\d{2,}','g');
 	//find all deal elements
 	var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
 	//setup array with unwantedDealElements
 	var unwantedDealElements = [];
 	//check each element and if amount is greater than filter, push to array
 	$.each(allDealElements, function(index, el) {
+
 		if 	($(el).text().match(/free/gi) === null) {
-			var matchedAmount = Number(amountPattern.exec($(el).text()));
+
+			// var matchedAmount = Number(amountPattern.exec($(el).text()));
+			var matchedAmountArray = $(el).text().match(amountPattern);
+			var matchedAmount = Number(matchedAmountArray[0]);
 			if (matchedAmount > upperlimit || matchedAmount < lowerlimit) {
 				unwantedDealElements.push(el);
 			}
@@ -120,23 +125,55 @@ function filterDeals(searchtext, lowerlimit, upperlimit, freeflag){
 			unwantedDealElements.push(el);
 		}
 	});
-	//setup variable for outerElements - we want to hide the outer layer (element block) that contains complete deal
-	var outerElements = unwantedDealElements;
-	while ($(outerElements).parent().length == unwantedDealElements.length) {
-		outerElements = $(outerElements).parent();
-	}
-	//hide the complete
-	$(outerElements).hide();
+
+	// //setup variable for outerElements - we want to hide the outer layer (element block) that contains complete deal
+	// var outerElements = unwantedDealElements;
+	// while ($(outerElements).parent().length == unwantedDealElements.length) {
+	// 	outerElements = $(outerElements).parent();
+	// }
+	// //hide the complete
+	//$(outerElements).hide();
+	var contentWrapper = [];
+	$.each(unwantedDealElements, function(index, el){
+		if ($(contentWrapper).has(el).length >0) {
+			$(contentWrapper).has(el).hide();
+		}
+		else {
+			var outerElements = $(el).parent().addBack().find('*').addBack();
+			var outerElement = el;
+			var i = 0;
+			while ($(outerElements).filter(function() { return ($(this).justtext().search(searchtext) > -1)}).length == 1) {
+				//console.log(i++);
+				outerElement = $(outerElement).parent();
+				outerElements = $(outerElements).parent().addBack().find('*').addBack();
+			}
+			//hide the complete
+			$(outerElement).hide();
+			contentWrapper = $(outerElement).siblings();
+		}
+	});
+
 }
 
 function resetDeals(searchtext){
-	//find all deal elements that contain search text
-	var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
-	var outerElements = allDealElements;
-	while ($(outerElements).parent().length == allDealElements.length) {
-		outerElements = $(outerElements).parent();
-	}
-	outerElements.show();
+	// //find all deal elements that contain search text
+	// var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
+	// var outerElements = allDealElements;
+	// while ($(outerElements).parent().length == allDealElements.length) {
+	// 	outerElements = $(outerElements).parent();
+	// }
+	// outerElements.show();
+
+		$.each(allDealElements, function(index, el){
+		var outerElements = $(el).parent().addBack().find('*').addBack();
+		var outerElement = el;
+		while ($(outerElements).filter(function() { return ($(this).justtext().search(searchtext) > -1)}).length == 1) {
+			outerElement = $(outerElement).parent();
+			outerElements = $(outerElements).parent().addBack().find('*').addBack();
+		}
+		//hide the complete
+		$(outerElement).show();
+	});
 }
 
 
