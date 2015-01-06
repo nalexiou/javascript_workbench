@@ -51,13 +51,13 @@ $.each(itemswithoutcoupons, function(index, el) {
 
 
 //function that allows to search for element text excluding children element
-$.fn.justtext = function() {
-    return $(this).clone()
-        .children()
-        .remove()
-        .end()
-        .text();
-};
+	$.fn.justtext = function() {
+	    return $(this).clone()
+	        .children()
+	        .remove()
+	        .end()
+	        .text();
+	};
 
 
 function locateCommonParent(arg, searchterm){
@@ -127,27 +127,31 @@ function filterDeals(searchtext, lowerlimit, upperlimit, freeflag){
 	});
 
 	// //setup variable for outerElements - we want to hide the outer layer (element block) that contains complete deal
-	// var outerElements = unwantedDealElements;
-	// while ($(outerElements).parent().length == unwantedDealElements.length) {
-	// 	outerElements = $(outerElements).parent();
-	// }
-	// //hide the complete
-	//$(outerElements).hide();
 	var contentWrapper = [];
+		console.log(unwantedDealElements);
 	$.each(unwantedDealElements, function(index, el){
 		if ($(contentWrapper).has(el).length >0) {
-			$(contentWrapper).has(el).hide();
+			//logic that checks current contentWrapper and selects closest container for each element that needs to be hidden
+			var currentWrapper = $(contentWrapper).has(el);
+			//search for all inner elements within the current contentWrapper
+			var innerElements = $(contentWrapper).has(el).find('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
+			//if currentWrapper is one of the commonParents and there more than one innerElements, traverse into children
+			//This addresses deferent structure of DOM (i.e. subcategories) that would does not always pick the closest container. 
+			while ($(currentWrapper).is($(innerElements).commonParents()) && innerElements.length > 1) {
+				contentWrapper = $(el).children();
+				currentWrapper = $(currentWrapper).children().has(el);
+			}
+			$(currentWrapper).hide();
 		}
 		else {
 			var outerElements = $(el).parent().addBack().find('*').addBack();
 			var outerElement = el;
 			var i = 0;
 			while ($(outerElements).filter(function() { return ($(this).justtext().search(searchtext) > -1)}).length == 1) {
-				//console.log(i++);
 				outerElement = $(outerElement).parent();
 				outerElements = $(outerElements).parent().addBack().find('*').addBack();
 			}
-			//hide the complete
+			//hide the complete container
 			$(outerElement).hide();
 			contentWrapper = $(outerElement).siblings();
 		}	
@@ -156,14 +160,9 @@ function filterDeals(searchtext, lowerlimit, upperlimit, freeflag){
 }
 
 function resetDeals(searchtext){
-	// //find all deal elements that contain search text
-	// var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
-	// var outerElements = allDealElements;
-	// while ($(outerElements).parent().length == allDealElements.length) {
-	// 	outerElements = $(outerElements).parent();
-	// }
-	// outerElements.show();
-
+	//find all deal elements that contain search text
+	var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
+	
 		$.each(allDealElements, function(index, el){
 		var outerElements = $(el).parent().addBack().find('*').addBack();
 		var outerElement = el;
