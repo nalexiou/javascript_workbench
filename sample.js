@@ -192,15 +192,62 @@ function filterDealsAlt(searchtext, lowerlimit, upperlimit, freeflag){
 	// //setup variable for outerElements - we want to hide the outer layer (element block) that contains complete deal
 
 	var contentWrapper = $(unwantedDealElements).commonParent();
-	console.log(contentWrapper);
 	$.each(unwantedDealElements, function(index, el){
 		var currentWrapper = contentWrapper;	
-		var innerElements = $(currentWrapper).find('*').filter(function() { return ($(this).justtext().search(searchtext) > -1)});;
-		while (innerElements.length > 1) {
+		var innerElementsLength = $(currentWrapper).find('*').filter(function() { return ($(this).justtext().search(searchtext) > -1)}).length;;
+		while (innerElementsLength > 1) {
 			currentWrapper = $(currentWrapper).children().has(el);
-			innerElements = $(currentWrapper).find('*').filter(function() { return ($(this).justtext().search(searchtext) > -1)});
+			innerElementsLength = $(currentWrapper).find('*').filter(function() { return ($(this).justtext().search(searchtext) > -1)}).length;
 			}
 		$(currentWrapper).hide();
+		var wrapperClass = $(currentWrapper).attr('class');
+		$(currentWrapper).siblings('[class="' + wrapperClass +'"]').filter(':not(:contains(' + searchtext +'))').hide();
+	});
+
+}
+
+function filterDealsAlt2(searchtext, lowerlimit, upperlimit, freeflag){
+	//setup defaults
+	if(typeof(lowerlimit)==='undefined')  lowerlimit = Number.NEGATIVE_INFINITY;
+	if(typeof(upperlimit)==='undefined')  upperlimit = Number.POSITIVE_INFINITY;
+	if(typeof(freeflag)==='undefined')    freeflag = true; //default includes free items 
+	//negative lookahead - find the last amount
+	// var amountPattern = new RegExp('\\d{0,6}\\.\\d{2,}(?!.*\\d{0,6}\\.\\d{2,})','g');
+	var amountPattern = new RegExp('\\d+(?:\\.\\d*)?|\\.\\d+', 'g')
+	//var amountPattern = new RegExp('(\\d{0,6}(\\.\\d{1,2})?)','g');
+	//find all deal elements
+	var allDealElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
+	//setup array with unwantedDealElements
+	var unwantedDealElements = [];
+	//check each element and if amount is greater than filter, push to array
+	$.each(allDealElements, function(index, el) {
+
+		if 	($(el).text().match(/free/gi) === null) {
+
+			// var matchedAmount = Number(amountPattern.exec($(el).text()));
+			var matchedAmountArray = $(el).text().match(amountPattern);
+			if (matchedAmountArray !== null){
+				console.log(matchedAmountArray);
+				var matchedAmount = Number(matchedAmountArray[0]);
+				if (matchedAmount > upperlimit || matchedAmount < lowerlimit) {
+					unwantedDealElements.push(el);
+				}
+			}
+		}
+		//add free items in the unwantedDealElements if freeflag is set to false
+		else if ($(el).text().match(/\bfree\b/gi) !== null && !freeflag){
+			unwantedDealElements.push(el);
+		}
+	});
+
+	var searchRegex = new RegExp(searchtext, 'g');
+	$.each(unwantedDealElements, function(index, el){
+		currentwrapper = el
+		while ($(currentwrapper).parent().text().match(searchRegex).length == 1){
+				currentwrapper = $(currentwrapper).parent();
+			}
+		$(currentwrapper).hide();
+		$(currentwrapper).siblings().not(':contains('+searchtext+')').hide();
 	});
 
 }
