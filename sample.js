@@ -250,6 +250,13 @@ function filterDealsAlt2(searchtext, lowerlimit, upperlimit, freeflag){
 		$(currentwrapper).siblings().not(':contains('+searchtext+')').hide();
 	});
 
+	var innerelements = $(allDealElements).commonParent();
+
+	for (innerelements; innerelements.length <  allDealElements.length; innerelements = innerelements.children()){
+		$(innerelements).not(':contains('+searchtext+')').hide();
+	}
+	$(innerelements).not(':contains('+searchtext+')').hide();
+
 }
 
 
@@ -268,6 +275,30 @@ function resetDeals(searchtext){
 		$(outerElement).show();
 	});
 }
+
+//CLIP SHOPRITE COUPONS
+function myfunction(){
+		var interval = null;
+
+		jQuery(function(){
+		  interval = setInterval(callFunc, 3000);
+		});
+
+		function callFunc(){
+			if ($('input[value="Load To Card"]').length >0){
+		  		$('input[value="Load To Card"]').click();
+
+			}
+			else {
+				clearInterval(interval);
+				if ($('a[title="Next Page"] span').length>0) {
+					$('a[title="Next Page"] span').first().click();
+				}
+			}
+		}
+}
+//AJAX Request, Replacing Contents, Callback Function
+$('#CouponsList').load( "http://plan.shoprite.com/Coupons/6 #CouponsList", myfunction);
 
 
 
