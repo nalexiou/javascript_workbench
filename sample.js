@@ -297,8 +297,13 @@ function myfunction(){
 			}
 		}
 }
+
+
 //AJAX Request, Replacing Contents, Callback Function
-$('#CouponsList').load( "http://plan.shoprite.com/Coupons/6 #CouponsList", myfunction);
+for (i=9, i<12, i++){
+	url = "http://plan.shoprite.com/Coupons/"+i+" #CouponsList"
+$.load( "http://plan.shoprite.com/Coupons/"+i+" #CouponsList", myfunction);
+}
 
 
 
