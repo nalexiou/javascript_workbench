@@ -276,6 +276,27 @@ function resetDeals(searchtext){
 	});
 }
 
+function filterText(searchtext){
+	
+	var matchedTextElements = $('*').filter(function() { return ($(this).justtext().search(searchtext) > -1); });
+	var elementDepth = matchedTextElements.first().parents().length
+	var allTextElements = $('*').filter(function () {
+        return $(this).parents().length === elementDepth;
+    });
+    var unmatchedDealElements = $(allTextElements).not(matchedTextElements);
+
+	var searchRegex = new RegExp(searchtext, 'g');
+	$.each(unmatchedDealElements, function(index, el){
+		currentwrapper = el
+		while ($(currentwrapper).parent().text().match(searchRegex) === null){
+				currentwrapper = $(currentwrapper).parent();
+			}
+		$(currentwrapper).hide();
+	});
+
+}
+
+
 //CLIP SHOPRITE COUPONS
 function myfunction(){
 		var interval = null;
