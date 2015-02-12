@@ -50,16 +50,6 @@ $.each(itemswithoutcoupons, function(index, el) {
 });
 
 
-//function that allows to search for element text excluding children element
-	$.fn.justtext = function() {
-	    return $(this).clone()
-	        .children()
-	        .remove()
-	        .end()
-	        .text();
-	};
-
-
 function locateCommonParent(arg, searchterm){
 	//Find closest/nearest common parent for elements that contain specific text
     //select elements that contain 'searchterm' excluding children's text
@@ -83,6 +73,15 @@ var matches = $('*').filter(function () {
 var commonparent = matches.first().parents().filter(function () {
     return $(this).find(matches).length == matches.length;
 }).first();
+
+//function that allows to search for element text excluding children element
+	$.fn.justtext = function() {
+	    return $(this).clone()
+	        .children()
+	        .remove()
+	        .end()
+	        .text();
+	};
 
 //jQuery extension of the above functionality for a jQuery object contanining matched elements
 $.fn.commonParents = function (){
@@ -227,7 +226,6 @@ function filterDealsAlt2(searchtext, lowerlimit, upperlimit, freeflag){
 			// var matchedAmount = Number(amountPattern.exec($(el).text()));
 			var matchedAmountArray = $(el).text().match(amountPattern);
 			if (matchedAmountArray !== null){
-				console.log(matchedAmountArray);
 				var matchedAmount = Number(matchedAmountArray[0]);
 				if (matchedAmount > upperlimit || matchedAmount < lowerlimit) {
 					unwantedDealElements.push(el);
