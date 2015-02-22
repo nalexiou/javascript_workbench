@@ -14,7 +14,7 @@ const
 		fs.readFile(request.path, function(err, content)
 		{
 			console.log('Sending response content');
-			repsponder.send(JSON.stringify({
+			responder.send(JSON.stringify({
 				content: content.toString(),
 				timestamp: Date.now(),
 				pid: process.pid
