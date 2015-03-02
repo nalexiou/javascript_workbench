@@ -4,6 +4,7 @@
   "description": "Tools for creating an ebook database.",
   "author": "Nikolaos Alexiou <nikolaos@technikally.com> (http://www.technikally.com)",
   "dependencies": {
+    "cheerio": "^0.18.0",
     "request": "^2.53.0"
   }
 }
