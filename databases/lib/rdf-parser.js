@@ -13,8 +13,8 @@ const
 		callback(null, {
 			_id: $('pgterms\\:ebook').attr('rdf:about').replace('ebooks/', ''),
 			title: $('dcterms\\:title').text(),
-			authors: $('pgterms\\:agent pgterms\\:name').map(collect),
-			subjectmine: $('[rdf\\:resource$="/LCSH"]').parent().find('rdf\\:value').map(collect)
+			authors: $('pgterms\\:agent pgterms\\:name').map(collect).get(),
+			subjects: $('[rdf\\:resource$="/LCSH"]').parent().find('rdf\\:value').map(collect).get()
 			});
 		});
 	};
