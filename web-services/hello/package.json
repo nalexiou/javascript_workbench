@@ -2,14 +2,11 @@
   "name": "hello",
   "version": "0.1.0",
   "description": "Hello World express example.",
-  "author": "Nikolaos Alexiou <nikolaos@technikally.com> (http://www.technikally.com)",
+  "author": "Your Name <you@yoursite.com> (http://yoursite.com/path)",
   "scripts": {
     "start": "node --harmony ./server.js"
   },
   "dependencies": {
-    "connect-redis": "^2.2.0",
-    "express": "~3.3.5",
-    "express-session": "^1.10.3",
-    "redis": "^0.12.1"
+    "express": "~3.3.5"
   }
 }
