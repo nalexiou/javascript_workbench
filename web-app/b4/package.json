@@ -7,13 +7,13 @@
     "start": "node --harmony ./server.js"
   },
   "dependencies": {
-    "connect-redis": "~1.4.5",
-    "express": "~3.3.8",
+    "connect-redis": "^1.4.7",
+    "express": "^3.3.8",
     "npmlog": "0.0.4",
     "passport": "^0.1.18",
     "passport-google": "^0.3.0",
-    "q": "~0.9.7",
-    "redis": "~0.8.4",
-    "request": "~2.27.0"
+    "q": "^0.9.7",
+    "redis": "^0.8.6",
+    "request": "^2.27.0"
   }
 }
