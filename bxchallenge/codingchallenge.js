@@ -114,11 +114,11 @@ function setupListeners(){
 
 		jQuery(window).on('scroll', function(){
 			//check if user has scrolled to 10% of the bottom of the page
-			   if (jQuery(window).scrollTop() >= (jQuery(document).height() - jQuery(window).height() - (jQuery(document).height() * 0.1))) {
-						if (!jQuery('#myContainer').is('visible')){
-							jQuery('#myContainer').show();
-						}
-		   		}
+			if (jQuery(window).scrollTop() >= (jQuery(document).height() - jQuery(window).height() - (jQuery(document).height() * 0.1))) {
+					if (!jQuery('#myContainer').is('visible')){
+						jQuery('#myContainer').show();
+					}
+				}
 		});
 	}
 }
