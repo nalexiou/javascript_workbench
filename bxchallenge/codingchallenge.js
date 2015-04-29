@@ -11,7 +11,7 @@ jQuery.get( cartURL, function() {
 	.done(function(data) {
 		cartPage = data;
 		extractData();
-		buildModal();
+		buildOverlay();
 		setupListeners();
 	})
 	.fail(function() {
@@ -38,7 +38,7 @@ function extractData() {
 	cartImageList = jQuery('#shopping-cart-table img', cartPage);
 }
 
-function buildModal() {
+function buildOverlay() {
 	//Use divs to build Modal
 	jQuery('body').append( '<div id="myContainer"></div>' );
 	jQuery('#myContainer').append( '<div id="myModal"></div>' );
