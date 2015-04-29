@@ -11,7 +11,7 @@ jQuery.get( cartURL, function() {
 	.done(function(data) {
 		cartPage = data;
 		extractData();
-		buildOverlay();
+		setupOverlay();
 		setupListeners();
 	})
 	.fail(function() {
@@ -38,8 +38,8 @@ function extractData() {
 	cartImageList = jQuery('#shopping-cart-table img', cartPage);
 }
 
-function buildOverlay() {
-	//Use divs to build Modal
+function setupOverlay() {
+	//Use divs to build Overlay that consists of a Container with a Modal box and a lightbox that dims the site
 	jQuery('body').append( '<div id="myContainer"></div>' );
 	jQuery('#myContainer').append( '<div id="myModal"></div>' );
 	jQuery('#myContainer').append( '<div id="myLightbox"></div>');
