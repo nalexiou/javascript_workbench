@@ -6,21 +6,20 @@ var cartPage, cartItemCount, cartTotal, cartImageList, cartURL = 'http://www.rac
 
 //ajax request of cart page
 jQuery.get( cartURL, function() {
-  console.log( 'Cart page request initiated.' );
+	console.log( 'Cart page request initiated.' );
 })
-  .done(function(data) {
-    cartPage = data;
-    extractData();
-    buildModal();
-    setupListeners();
-  })
-  .fail(function() {
-    console.log( 'Cart page request error.' );
-  })
-    .always(function() {
-    console.log( 'Cart page request finished.' );
-
-  });
+	.done(function(data) {
+		cartPage = data;
+		extractData();
+		buildModal();
+		setupListeners();
+	})
+	.fail(function() {
+		console.log( 'Cart page request error.' );
+	})
+	.always(function() {
+		console.log( 'Cart page request finished.' );
+	});
 
 
 function extractData() {
@@ -56,8 +55,8 @@ function buildModal() {
 		});
 		jQuery('#myImages').css(
 			{'height': '300px',
-		    'overflow-y': 'scroll',
-		    'overflow-x': 'hidden'
+			'overflow-y': 'scroll',
+			'overflow-x': 'hidden'
 			});
 	}
 	else {
@@ -70,37 +69,37 @@ function buildModal() {
 	//modal box with fixed size
 	jQuery('#myModal').css(
 		{'width': '400px',
-	    'height': '400px',
-	    'position': 'fixed',
-	    'top': '50%',
-	    'left': '50%',
-	    'margin-left': '-200px',
-	    'margin-top': '-200px',
-	    'background-color': 'white',
-	    'z-index': '9999'
+		'height': '400px',
+		'position': 'fixed',
+		'top': '50%',
+		'left': '50%',
+		'margin-left': '-200px',
+		'margin-top': '-200px',
+		'background-color': 'white',
+		'z-index': '9999'
 		});
 	//transparent overlay background
 	jQuery('#myLightbox').css(
 		{'position': 'fixed',
-	    'top': '0',
-	    'left': '0',
-	    'height': '100%',
-	    'width': '100%',
-	    'background-color': 'black',
-	    'z-index': '9998',
-	    'opacity': '.8'
+		'top': '0',
+		'left': '0',
+		'height': '100%',
+		'width': '100%',
+		'background-color': 'black',
+		'z-index': '9998',
+		'opacity': '.8'
 		});
 
 	jQuery('#myclosebutton').css(	
 		{'position': 'absolute',
-	    'bottom': '5px',
-	    'left': '5px'
+		'bottom': '5px',
+		'left': '5px'
 		});
 
 	jQuery('#mycartbutton').css(	
 		{'position': 'absolute',
-	    'bottom': '5px',
-	    'right': '5px'
+		'bottom': '5px',
+		'right': '5px'
 		});
 }
 
