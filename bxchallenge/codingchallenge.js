@@ -69,7 +69,6 @@ function buildModal() {
 
 	//modal box with fixed size
 	jQuery('#myModal').css(
-
 		{'width': '400px',
 	    'height': '400px',
 	    'position': 'fixed',
@@ -82,9 +81,7 @@ function buildModal() {
 		});
 	//transparent overlay background
 	jQuery('#myLightbox').css(
-
-		{
-		'position': 'fixed',
+		{'position': 'fixed',
 	    'top': '0',
 	    'left': '0',
 	    'height': '100%',
@@ -95,15 +92,13 @@ function buildModal() {
 		});
 
 	jQuery('#myclosebutton').css(	
-		{
-	    'position': 'absolute',
+		{'position': 'absolute',
 	    'bottom': '5px',
 	    'left': '5px'
 		});
 
 	jQuery('#mycartbutton').css(	
-		{
-	    'position': 'absolute',
+		{'position': 'absolute',
 	    'bottom': '5px',
 	    'right': '5px'
 		});
