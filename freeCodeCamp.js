@@ -6,3 +6,4 @@
 //Day 6 - Super quick runthrough CS basics
 //Day 7 - Digital/Analog, compression, database, security, networking
 //Day 8 - Begin Javascript Project
+//Day 9 - Super simple Javascript tutorial
