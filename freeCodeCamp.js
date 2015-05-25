@@ -9,3 +9,4 @@
 //Day 9 - Super simple Javascript tutorial
 //Day 10 - Rock, paper, scissors
 //Day 11 - Functions
+//Day 12 - Loops
