@@ -10,3 +10,4 @@
 //Day 10 - Rock, paper, scissors
 //Day 11 - Functions
 //Day 12 - Loops
+//Day 13 - Loops for arrays and searhing/comparing text
