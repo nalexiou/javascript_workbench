@@ -12,3 +12,4 @@
 //Day 12 - Loops
 //Day 13 - Loops for arrays and searhing/comparing text
 //Day 14 - logical operators and switch statements
+//Day 15 - Javascript Methods
