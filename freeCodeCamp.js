@@ -14,3 +14,4 @@
 //Day 14 - logical operators and switch statements
 //Day 15 - Javascript Methods
 //Day 16 - ScreenHero/PairProgramming
+//Day 17 - More Bonfire algorithms
