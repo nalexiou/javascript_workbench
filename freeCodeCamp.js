@@ -16,3 +16,4 @@
 //Day 16 - ScreenHero/PairProgramming
 //Day 17 - More Bonfire algorithms
 //Day 18 - Roman Number algorithm
+//Day 19 - Primes and Least Common Multiplier
