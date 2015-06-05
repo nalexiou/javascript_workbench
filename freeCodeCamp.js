@@ -20,3 +20,4 @@
 //Day 20 - OOP
 //Day 21 - this keyword
 //Day 22 - Prototype chain
+//Day 23 - Decorating patterns
