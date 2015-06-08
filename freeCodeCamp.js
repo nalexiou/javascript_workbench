@@ -22,4 +22,4 @@
 //Day 22 - Prototype chain
 //Day 23 - Decorating patterns
 //Day 24 - Functional classes
-//Day 25 - Prototypal classes
+//Day 25 - Prototypal classes and Pseudoclassical classes
