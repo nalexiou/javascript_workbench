@@ -25,3 +25,4 @@
 //Day 25 - Prototypal classes and Pseudoclassical classes
 //Day 26 - Subclasses
 //Day 27 - Subclasses part 2
+//Day 28 - More bonefire problems - Constructor
