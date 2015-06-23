@@ -35,3 +35,4 @@
 //Day 35 - Working on date algorithm
 //Day 36 - Ordinal Numbers algorithm
 //Day 37 - Date javascript objects
+//Day 38 - Finalize friendly date Bonfire
