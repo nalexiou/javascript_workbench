@@ -37,3 +37,4 @@
 //Day 37 - Date javascript objects
 //Day 38 - Finalize friendly date Bonfire
 //Day 39 - Ziplines
+//Day 40 - Getting started with codepen.io
