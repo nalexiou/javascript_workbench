@@ -38,3 +38,4 @@
 //Day 38 - Finalize friendly date Bonfire
 //Day 39 - Ziplines
 //Day 40 - Getting started with codepen.io
+//Day 41 - Starting HTML/CSS waypoints
