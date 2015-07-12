@@ -54,4 +54,4 @@
 //Day 54 - Jquery exploring......
 //Day 55 - Airbnb site
 //Day 56 - Airbnb and bootstrap
-
+//Day 57 - Airbnb, bootstrap, grid, personalize
