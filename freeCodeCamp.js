@@ -56,3 +56,4 @@
 //Day 56 - Airbnb and bootstrap
 //Day 57 - Airbnb, bootstrap, grid, personalize
 //Day 58 - Working with codepen for zipline
+//Day 59 - Having fun with CSS
