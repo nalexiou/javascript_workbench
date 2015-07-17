@@ -59,3 +59,4 @@
 //Day 59 - Having fun with CSS
 //Day 60 - More progress with random quotes
 //Day 61 - Zipline 1 completed! http://codepen.io/nalexiou/pen/OVERjR/
+//Day 62 - Exploring weather apis
