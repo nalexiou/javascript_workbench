@@ -61,3 +61,5 @@
 //Day 61 - Zipline 1 completed! http://codepen.io/nalexiou/pen/OVERjR/
 //Day 62 - Exploring weather apis
 //Day 63 - simpleweatherjs API
+//Day 64 - WeatherIcons css
+
