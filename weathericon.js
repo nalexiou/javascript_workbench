@@ -1,4 +1,4 @@
-	function setWeatherIcon(condid) {
+function setWeatherIcon(condid) {
  
   switch(condid) {
     case '0': var icon  = '<i class="wi-tornado"></i>';
