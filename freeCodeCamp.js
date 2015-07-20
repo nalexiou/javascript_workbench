@@ -64,4 +64,4 @@
 //Day 64 - WeatherIcons css
 //Day 65 - background jquery code
 //Day 66 - Zipline 2 done!
-
+//Day 67 - Dynamic content bootstrap
