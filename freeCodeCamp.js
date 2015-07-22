@@ -66,3 +66,4 @@
 //Day 66 - Zipline 2 done!
 //Day 67 - Dynamic content bootstrap
 //Day 68 - APIs and JSONs
+//Day 69 - Layout and frontend
