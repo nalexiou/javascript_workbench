@@ -68,3 +68,4 @@
 //Day 68 - APIs and JSONs
 //Day 69 - Layout and frontend
 //Day 70 - Zipline 3 done!
+//Day 71 - Masonry jQuery
