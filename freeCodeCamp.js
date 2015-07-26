@@ -70,3 +70,4 @@
 //Day 70 - Zipline 3 done!
 //Day 71 - Masonry jQuery
 //Day 72 - More Masonry/CSS
+//Day 73 - Putting it together with JSON 
