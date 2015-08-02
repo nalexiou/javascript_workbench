@@ -77,3 +77,4 @@
 //Day 77 - jQueryUI documentation
 //Day 78 - Another zipline(5) done!
 //Day 79 - Examining pomodoro zipline requirements
+//Day 80 - checking out canvas/progress plugin
