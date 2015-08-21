@@ -96,3 +96,4 @@
 //Day 96 - Tic-tac-toe zipline done!
 //Day 97 - Flying through revised freecodecamp map
 //Day 98 - Flying through more basic stuff
+//Day 99 - Simple slot machine challenge
