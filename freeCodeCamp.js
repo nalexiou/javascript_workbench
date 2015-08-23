@@ -98,3 +98,4 @@
 //Day 98 - Flying through more basic stuff
 //Day 99 - Simple slot machine challenge
 //Day 100 - More javascript practice
+//Day 100 - More js
