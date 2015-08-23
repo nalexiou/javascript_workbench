@@ -97,3 +97,4 @@
 //Day 97 - Flying through revised freecodecamp map
 //Day 98 - Flying through more basic stuff
 //Day 99 - Simple slot machine challenge
+//Day 100 - More javascript practice
