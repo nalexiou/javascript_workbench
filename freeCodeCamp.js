@@ -100,5 +100,6 @@
 //Day 100 - More javascript practice
 //Day 101 - More js
 //Day 102 - More js in Paris  :-)
-//Day 103 - Roma and JS school
+//Day 103 - Roma and JS school	
+//Day 104 - fixed/scroll background reference
 
