@@ -102,4 +102,5 @@
 //Day 102 - More js in Paris  :-)
 //Day 103 - Roma and JS school	
 //Day 104 - fixed/scroll background reference
+//Day 105 - Portfolio playground
 
