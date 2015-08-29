@@ -104,4 +104,5 @@
 //Day 104 - fixed/scroll background reference
 //Day 105 - Portfolio playground
 //Day 106 - More portofolio content
+//Day 107 - Adding images and links
 
