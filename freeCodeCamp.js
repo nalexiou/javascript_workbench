@@ -105,4 +105,5 @@
 //Day 105 - Portfolio playground
 //Day 106 - More portofolio content
 //Day 107 - Adding images and links
+//Day 108 - Added links to codepen and fixed newsfeed
 
