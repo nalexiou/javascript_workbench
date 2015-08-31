@@ -106,4 +106,5 @@
 //Day 106 - More portofolio content
 //Day 107 - Adding images and links
 //Day 108 - Added links to codepen and fixed newsfeed
+//Day 109 - added missing projects
 
