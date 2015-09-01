@@ -107,4 +107,5 @@
 //Day 107 - Adding images and links
 //Day 108 - Added links to codepen and fixed newsfeed
 //Day 109 - added missing projects
+//Day 110 - finishing page
 
