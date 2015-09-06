@@ -112,4 +112,5 @@
 //Day 112 - burger bar
 //Day 113 - jQuery portfolio page posted
 //Day 114 - simon game algorithm and some design
+//Day 115 - more fun with animation and design
 
