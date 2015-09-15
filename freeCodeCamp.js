@@ -120,4 +120,5 @@
 //Day 120 - more angular
 //Day 121 - controllers
 //Day 122 - angular directives
+//Day 123 - updated portfolio
 
