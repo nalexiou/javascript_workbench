@@ -121,4 +121,5 @@
 //Day 121 - controllers
 //Day 122 - angular directives
 //Day 123 - updated portfolio
+//Day 124 - completed angular tutorial
 
