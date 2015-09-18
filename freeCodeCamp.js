@@ -123,4 +123,5 @@
 //Day 123 - updated portfolio
 //Day 124 - completed angular tutorial
 //Day 125 - nodejs challenges
+//Day 126 - completed nodejs challenges
 
