@@ -136,4 +136,4 @@
 //Day 136 - More local installation...
 //Day 137 - Run grunt serve successfully!
 //Day 138 - Deployed to heroku. Going over Yeoman Angular-Fullstack guide
-
+//Day 139 - Troubleshooting MongoDB heroku
