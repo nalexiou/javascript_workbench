@@ -142,3 +142,4 @@
 //Day 142 - Learning more about Angular
 //Day 143 - CiiC
 //Day 144 - Eclipse to Android Studio for CiiC app
+//Day 145 - automation too
